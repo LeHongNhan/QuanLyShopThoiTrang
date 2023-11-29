@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "AllSP";
+    Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
+}
+<div class="table">
+    <div class="row">
+        <div class="col-6">
+            <a href="#" class="text-warning" style="font-weight:200"><i class="fas fa-bars mr-2"></i>BỘ LỘC TÌM KIẾM</a>
+        </div>
+        <div class="col-6 ">
+            <form class="form-inline" style="margin-left:25%;border: 1px solid #808080;margin-right:25%">
+                <button class="btn btn-link text-secondary" type="submit" ><i class="fas fa-search" style="color:#a0643d"></i></button>
+                <input class="form-control border-0" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
+            </form>
+        </div>
+        
+    </div>
+</div>
+@Html.Action("ProductPatial","Product")
+

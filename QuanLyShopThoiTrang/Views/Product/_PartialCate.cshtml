@@ -1,0 +1,59 @@
+﻿@model IEnumerable<QuanLyShopThoiTrang.Models.Category>
+<li class="nav-item dropdown" style="width:150px">
+    <a class="nav-link dropdown-toggle text-white text-lg font-weight-bold " href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sản Phẩm
+    </a>
+    <ul class="dropdown-menu mt-2"style="background-color: #f9f1f1;">
+        <li class="dropdown">
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Áo<i style="margin-left:110px">></i></div>
+            <ul class="dropdown-menu"style="left:99%;width:200px">
+                @foreach (var item in Model)
+                {
+                    if (item.category_id >= 1 && item.category_id <= 6)
+                    {
+                        <li><a class="dropdown-item ml-0" href="#">@item.category_name</a></li>
+                    }
+                }
+            </ul>
+        </li>
+        <li class="dropdown">
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Quần<i style="margin-left:90px">></i></div>
+            <ul class="dropdown-menu" style="left:99%;width:200px">
+                @foreach (var item in Model)
+                {
+                    if (item.category_id >= 7 && item.category_id <= 9)
+                    {
+                        <li><a class="dropdown-item ml-0" href="#">@item.category_name</a></li>
+                    }
+                }
+            </ul>
+        </li>
+        <li class="dropdown">
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Đầm<i style="margin-left:95px">></i></div>
+            <ul class="dropdown-menu" style="left:99%;width:200px">
+                @foreach (var item in Model)
+                {
+                    if (item.category_id >= 10 && item.category_id <= 11)
+                    {
+                        <li ><a class="dropdown-item ml-0" href="#">@item.category_name</a></li>
+                    }
+                }
+            </ul>
+        </li>
+        <li>
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Yếm</div>
+        </li>
+        <li>
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Phụ kiện</div>
+        </li>
+        <li>
+            <div class="dropdown-item" data-toggle="dropdown" href="#">Bộ</div>
+        </li>
+       
+    </ul>
+  </li>
+
+
+
+
+

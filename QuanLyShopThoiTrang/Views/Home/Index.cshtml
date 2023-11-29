@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
+}
+<h2 class="text-center" style="margin-top:50px;margin-bottom:30px">Sản Phẩm Nổi Bật</h2>
+@Html.Action("_PatialOutstanding", "Home")
+<br />
+<h2 class="text-center" style="margin-top:50px;margin-bottom:30px">NEWARRIVALS</h2>
+@Html.Action("_PatialNEWARRIVALS", "Home")
+<br /><br />
+
+

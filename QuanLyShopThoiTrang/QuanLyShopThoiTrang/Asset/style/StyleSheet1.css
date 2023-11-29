@@ -1,0 +1,58 @@
+﻿body {
+
+}
+.dropdown:hover .dropdown-menu {
+}
+
+.nav-item .dropdown-menu .dropdown .dropdown-item:hover {
+    background-color: #808080;
+    transition: top 0.3s ease;
+    color: yellow;
+}
+
+.nav-item .dropdown-menu .dropdown .dropdown-menu {
+    z-index: 1;
+    background-color: #e9e8e8;
+    position: absolute;
+    display: none;
+}
+
+.nav-item .dropdown-menu .dropdown:hover > .dropdown-menu {
+    top: -10%;
+    display: block;
+}
+
+.nav-item .dropdown-menu .dropdown .dropdown-menu .dropdown-item:hover {
+    transition: top 0.3s ease;
+    color: yellow;
+    background-color: #808080;
+}
+
+.carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.custom-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size:24px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease-in-out;
+    border-bottom: 2px solid white;
+}
+    .custom-btn:hover {
+        border-bottom: 2px solid white;
+        background-color: white;
+        color:black;
+        border-radius:0;
+    }
+.CateProduct {
+    color: white;
+    font-weight: bold;
+    z-index:2; 
+    top:40%;
+    left:32%;
+    text-transform:uppercase;
+}

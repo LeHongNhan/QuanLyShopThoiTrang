@@ -1,0 +1,48 @@
+﻿<div class="table" >
+    <div class="row ">
+        <div class="col-6 mt-3 text-right">
+            <img class="img-fluid" style="width:250px;height:50px;" src="~/Image/Logo/Logo1.png" />
+        </div>      
+        <div class="col-6 mt-3 ">
+            <form class="form-inline" style="margin-left:300px">               
+                <button class="btn btn-link text-secondary" type="submit"><i class="fas fa-search "></i></button>
+                <input class="form-control border-0" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
+               
+            </form>
+            <hr style="margin-left:300px;color:black" class="mt-1" />
+        </div>
+    </div>
+    <div class="row bg-dark">
+        <div class="col-6 bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto " style="margin-left:150px ;">
+                        <li class="nav-item active" style=" width:100px">
+                            <a class="nav-link text-white text-lg font-weight-bold" href="#">Trang Chủ </a>
+                        </li>
+                        <li class="nav-item style=" width:100px"">
+                            <span nav-link text-white text-lg font-weight-bold>@Html.ActionLink("New", "SanPhamNew", "Product")</span>
+                            
+                        </li>
+                      @Html.Action("_PartialCate","Product")
+                        <li class="nav-item" style=" width:100px">
+                            <a class="nav-link active text-lg font-weight-bold text-white" href="#">Liên Hệ<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item" style=" width:150px">
+                            <a class="nav-link active text-lg font-weight-bold text-white" href="#">BEST SELLER<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+        </div>
+        <div class=" col-6 text-warning mt-3 text-right">
+            <!-- Cart Icon -->
+            <i class="fas fa-shopping-cart  ml-3 mr-3 " style="width:50px"></i>
+            <!-- Login Icon -->
+            <i class="fas fa-user  ml-3"></i>
+            <span style="margin-right:200px;margin-left:10px">Đăng nhập</span>
+        </div>
+    </div>
+</div>

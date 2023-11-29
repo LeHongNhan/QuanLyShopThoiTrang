@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_ShopThoiTrang" Class="QuanLyTheCIU1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MSI\MSI;Initial Catalog=QL_ShopThoiTrang;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QL_ShopThoiTrangConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sizes" Member="Sizes">
+    <Type Name="Size">
+      <Column Name="size_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="size_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="Size_ProductVariant" Member="ProductVariants" ThisKey="size_id" OtherKey="size_id" Type="ProductVariant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductVariants" Member="ProductVariants">
+    <Type Name="ProductVariant">
+      <Column Name="variant_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="color_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="size_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="ProductVariant_OrderDetail" Member="OrderDetails" ThisKey="variant_id" OtherKey="variant_id" Type="OrderDetail" />
+      <Association Name="Size_ProductVariant" Member="Size" ThisKey="size_id" OtherKey="size_id" Type="Size" IsForeignKey="true" />
+      <Association Name="Product_ProductVariant" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
+      <Association Name="Color_ProductVariant" Member="Color" ThisKey="color_id" OtherKey="color_id" Type="Color" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Product_ProductVariant" Member="ProductVariants" ThisKey="product_id" OtherKey="product_id" Type="ProductVariant" />
+      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="customer_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="order_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="payment_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="amount" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="order_id" OtherKey="order_id" Type="OrderDetail" />
+      <Association Name="Customer_Order" Member="Customer" ThisKey="customer_id" OtherKey="customer_id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderDetails" Member="OrderDetails">
+    <Type Name="OrderDetail">
+      <Column Name="order_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="variant_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="subtotal" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Order_OrderDetail" Member="Order" ThisKey="order_id" OtherKey="order_id" Type="Order" IsForeignKey="true" />
+      <Association Name="ProductVariant_OrderDetail" Member="ProductVariant" ThisKey="variant_id" OtherKey="variant_id" Type="ProductVariant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="customer_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Association Name="Customer_Order" Member="Orders" ThisKey="customer_id" OtherKey="customer_id" Type="Order" />
+      <Association Name="Customer_Account" Member="Accounts" ThisKey="customer_id" OtherKey="customerId" Type="Account" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Colors" Member="Colors">
+    <Type Name="Color">
+      <Column Name="color_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="color_name" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="Color_ProductVariant" Member="ProductVariants" ThisKey="color_id" OtherKey="color_id" Type="ProductVariant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Categories" Member="Categories">
+    <Type Name="Category">
+      <Column Name="category_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="category_name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Category_Product" Member="Products" ThisKey="category_id" OtherKey="category_id" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="password" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="customerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Customer_Account" Member="Customer" ThisKey="customerId" OtherKey="customer_id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

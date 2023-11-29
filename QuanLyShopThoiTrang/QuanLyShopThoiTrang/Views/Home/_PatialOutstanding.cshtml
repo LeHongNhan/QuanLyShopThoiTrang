@@ -1,0 +1,140 @@
+﻿@model IEnumerable<QuanLyShopThoiTrang.Models.Product>
+
+<div style="margin-left: 10%; margin-right: 10%; background-color:Background" id="cardCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner ">
+        <div class="carousel-item active ">
+            <div class="card-group">
+                @foreach (var item in Model.Take(3))
+                {
+                    <div class="card d-inline " style="margin-left:2%;margin-right:2%">
+
+                        @if (item.category_id == 1)
+                        {
+                            <img  st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 2)
+                        {
+                            <img  st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
+                        {
+                            <img  st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 7 || item.category_id == 8)
+                        {
+                            <img  st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 9 && item.category_id == 9)
+                        {
+                            <img  st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 10 || item.category_id == 11)
+                        {
+                            <img  st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 12 || item.category_id == 13)
+                        {
+                            <img  st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
+                        }
+                        <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
+                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <div class="card-group">
+                @foreach (var item in Model.Skip(3).Take(3))
+                {
+                    <div class="card d-inline " style="margin-left:2%;margin-right:2%">
+
+                        @if (item.category_id == 1)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 2)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
+                        }
+
+                        @if (item.category_id == 7 || item.category_id == 8)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 9 && item.category_id == 9)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 10 || item.category_id == 11)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 12 || item.category_id == 13)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
+                        }
+                        <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
+                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
+
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="carousel-item  ">
+            <div class="card-group">
+                @foreach (var item in Model.Skip(6).Take(3))
+                {
+
+                    <div class="card d-inline " style="margin-left:2%;margin-right:2%">
+
+                        @if (item.category_id == 1)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 2)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 7 || item.category_id == 8)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 9 && item.category_id == 9)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 10 || item.category_id == 11)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
+                        }
+                        @if (item.category_id == 12 || item.category_id == 13)
+                        {
+                            <img style="height:400px" st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
+                        }
+                        <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
+
+                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <!-- Add more carousel items as needed -->
+    </div>
+    <a class="carousel-control-prev" href="#cardCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Trước</span>
+    </a>
+    <a class="carousel-control-next" href="#cardCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Tiếp theo</span>
+    </a>
+</div>
