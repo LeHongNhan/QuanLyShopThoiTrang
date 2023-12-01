@@ -1,0 +1,59 @@
+﻿
+@model QuanLyShopThoiTrang.Models.ForgetPassWord
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="~/Scripts/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="~/JavaScript.js"></script>
+    <title>QuenMatKhau</title>
+    <style>
+        body {
+            background-image: url('../../image/banner/images.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="container mt-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header text-center" style="background-color: moccasin; margin-bottom: 15px; margin: 20px; color: white">Quên Mật Khẩu</div>
+                        <div class="card-body">
+                            @using (Html.BeginForm("QuenMatKhau", "Home", FormMethod.Post))
+                            {
+                                <div class="form-group">
+                                    <label for="sdt">Số Điện Thoại</label>
+                                    <input type="text" class="form-control" id="sdt" name="DienThoai">
+                                    @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-block" style="background-color: moccasin; border: none;">Gửi Lại Mật Khẩu</button>
+                            }
+                        </div>
+                        <p class="text-center mt-3">
+                            <a>@Html.ActionLink("Tới trang Đăng nhập", "DangNhap")</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</body>
+
+</html>
+

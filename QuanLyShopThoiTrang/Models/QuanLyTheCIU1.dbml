@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QL_ShopThoiTrang" Class="QuanLyTheCIU1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=MSI\MSI;Initial Catalog=QL_ShopThoiTrang;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QL_ShopThoiTrangConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyShop" Class="QuanLyTheCIU1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Table Name="dbo.Sizes" Member="Sizes">
     <Type Name="Size">
       <Column Name="size_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -17,20 +16,8 @@
       <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="ProductVariant_OrderDetail" Member="OrderDetails" ThisKey="variant_id" OtherKey="variant_id" Type="OrderDetail" />
       <Association Name="Size_ProductVariant" Member="Size" ThisKey="size_id" OtherKey="size_id" Type="Size" IsForeignKey="true" />
-      <Association Name="Product_ProductVariant" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
       <Association Name="Color_ProductVariant" Member="Color" ThisKey="color_id" OtherKey="color_id" Type="Color" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Products" Member="Products">
-    <Type Name="Product">
-      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="product_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Product_ProductVariant" Member="ProductVariants" ThisKey="product_id" OtherKey="product_id" Type="ProductVariant" />
-      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
+      <Association Name="Product_ProductVariant" Member="Product" ThisKey="product_id" OtherKey="product_id" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Orders" Member="Orders">
@@ -88,6 +75,19 @@
       <Column Name="status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="customerId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Customer_Account" Member="Customer" ThisKey="customerId" OtherKey="customer_id" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="product_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="product_name" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="category_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageSP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Dateadd" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Product_ProductVariant" Member="ProductVariants" ThisKey="product_id" OtherKey="product_id" Type="ProductVariant" />
+      <Association Name="Category_Product" Member="Category" ThisKey="category_id" OtherKey="category_id" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

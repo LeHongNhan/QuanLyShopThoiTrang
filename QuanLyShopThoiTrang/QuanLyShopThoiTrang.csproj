@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>QuanLyShopThoiTrang</RootNamespace>
     <AssemblyName>QuanLyShopThoiTrang</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -21,7 +21,6 @@
     <IISExpressUseClassicPipelineMode />
     <Use64BitIISExpress />
     <UseGlobalApplicationHostFile />
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +41,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -50,14 +48,16 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -84,9 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asset\JavaScript1.js" />
-    <Content Include="Asset\script.js" />
-    <Content Include="Asset\style.css" />
-    <Content Include="Asset\styleNonGiay.css" />
+    <Content Include="Asset\style\StyleSheet1.css" />
     <Content Include="Global.asax" />
     <Content Include="Image\AoKhoac\aokhoacdaykeo1.jpg" />
     <Content Include="Image\AoKhoac\aokhoacdaykeo2.jpg" />
@@ -128,12 +126,14 @@
     <Content Include="Image\AoThun\A031.jpg" />
     <Content Include="Image\AoThun\A07.jpg" />
     <Content Include="Image\Banner\images.jpg" />
+    <Content Include="Image\Banner\Slide.png" />
     <Content Include="Image\Banner\slide1.png" />
     <Content Include="Image\Banner\slide2.png" />
     <Content Include="Image\Banner\slide3.jpg" />
     <Content Include="Image\Banner\slide3.png" />
     <Content Include="Image\Banner\slide4.jpg" />
     <Content Include="Image\Logo\atm.png" />
+    <Content Include="Image\Logo\backgroundBanner.htm" />
     <Content Include="Image\Logo\BoCongThuong.jpg" />
     <Content Include="Image\Logo\cash.png" />
     <Content Include="Image\Logo\logo.png" />
@@ -157,9 +157,6 @@
     <Content Include="Image\NonGiay\G051.png" />
     <Content Include="Image\NonGiay\G052.png" />
     <Content Include="Image\NonGiay\G060.png" />
-    <Content Include="Image\NonGiay\Hình nón có người\M040.jpg" />
-    <Content Include="Image\NonGiay\Hình nón có người\M041.jpg" />
-    <Content Include="Image\NonGiay\Hình nón có người\M042.jpg" />
     <Content Include="Image\NonGiay\M010.png" />
     <Content Include="Image\NonGiay\M011.png" />
     <Content Include="Image\NonGiay\M012.png" />
@@ -169,6 +166,9 @@
     <Content Include="Image\NonGiay\M030.png" />
     <Content Include="Image\NonGiay\M031.png" />
     <Content Include="Image\NonGiay\M032.png" />
+    <Content Include="Image\NonGiay\M040.jpg" />
+    <Content Include="Image\NonGiay\M041.jpg" />
+    <Content Include="Image\NonGiay\M042.jpg" />
     <Content Include="Image\NonGiay\M050.jpg" />
     <Content Include="Image\QuanDai\E010.jpg" />
     <Content Include="Image\QuanDai\E011.jpg" />
@@ -191,6 +191,7 @@
     <Content Include="Image\QuanShort\D010.jpg" />
     <Content Include="Image\QuanShort\D011.jpg" />
     <Content Include="Image\SoMi\somi1.jpg" />
+    <Content Include="Image\SoMi\somi2.jpg" />
     <Content Include="Image\SoMi\somi2B.jpg" />
     <Content Include="Image\SoMi\somi2H.jpg" />
     <Content Include="Image\SoMi\somi2T.jpg" />
@@ -213,11 +214,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DNController.cs" />
+    <Compile Include="Controllers\GioHangDefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountRegister.cs" />
+    <Compile Include="Models\AccountTK.cs" />
+    <Compile Include="Models\ForgetPassWord.cs" />
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\QuanLyTheCIU1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -242,11 +248,14 @@
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Views\Product\_PartialCate.cshtml" />
     <Content Include="Views\Shared\_PartialPanel.cshtml" />
-    <Content Include="Views\Home\_PatialNEWARRIVALS.cshtml" />
     <Content Include="Views\Home\_PatialOutstanding.cshtml" />
+    <Content Include="Views\Home\_PatialNEWARRIVALS.cshtml" />
+    <Content Include="Views\DN\Register.cshtml" />
     <Content Include="Views\DN\DangNhap.cshtml" />
-    <Content Include="Views\Product\SanPhamNew.cshtml" />
+    <Content Include="Views\DN\QuenMatKhau.cshtml" />
+    <Content Include="Views\Home\AdminDashboard.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\SanPhamNew.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,6 +265,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GioHangDefault\" />
+    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

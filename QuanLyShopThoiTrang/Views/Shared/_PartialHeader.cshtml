@@ -21,8 +21,7 @@
                             <a class="nav-link text-white text-lg font-weight-bold" href="#">Trang Chủ </a>
                         </li>
                         <li class="nav-item style=" width:100px"">
-                            <span nav-link text-white text-lg font-weight-bold>@Html.ActionLink("New", "SanPhamNew", "Product")</span>
-                            
+                            <a class="nav-link text-white text-lg font-weight-bold" href="#">New</a>
                         </li>
                       @Html.Action("_PartialCate","Product")
                         <li class="nav-item" style=" width:100px">
@@ -39,10 +38,12 @@
         </div>
         <div class=" col-6 text-warning mt-3 text-right">
             <!-- Cart Icon -->
-            <i class="fas fa-shopping-cart  ml-3 mr-3 " style="width:50px"></i>
+            <i class="fas fa-shopping-cart  ml-3 mr-3 " style="width: 50px; color: sandybrown"></i>
             <!-- Login Icon -->
-            <i class="fas fa-user  ml-3"></i>
-            <span style="margin-right:200px;margin-left:10px">Đăng nhập</span>
+          
+            <span style="margin-right:200px;margin-left:10px">
+                <a href="@Url.Action("DangNhap", "DN")" style="text-decoration: none;color:sandybrown">  <i class="fas fa-user  ml-3"></i> &emsp; Đăng Nhập</a>
+            </span>
         </div>
     </div>
 </div>

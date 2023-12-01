@@ -1,32 +1,35 @@
 ﻿@model IEnumerable<QuanLyShopThoiTrang.Models.Product>
 
-<div class="table mt-3">
+<div id="content" class="table mt-3">
     <div class="row" style="margin-left:10%;margin-right:10%">
         @foreach (var item in Model)
         {
-            <div class="col-3" style="width:12rem; font-size:14px ; font-weight:450">
+            <div class="col-lg-3 col-md-6 col-12  " style="font-size:14px ; font-weight:400; width:37vmin;height:55vmin">
                 @if (item.category_id == 1)
                 {
-                    <img style="height:350px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
                 }
                 @if (item.category_id == 2)
                 {
-                    <img style="height:350px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
                 }
-
+                @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
+                {
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
+                }
                 @if (item.category_id == 7 || item.category_id == 8)
                 {
-                    <img style="height:350px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
                 }
                 @if (item.category_id == 9 && item.category_id == 9)
                 {
-                    <img style="height:350px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
                 }
                 @if (item.category_id == 10 || item.category_id == 11)
                 {
-                    <img style="height:350px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
                 }
-                <div class="card-body">
+                <div class="card-body" style="width:35vmin;height:15vmin">
                     @if (item.product_name.Length > 30)
                     {
                         <p class="card-title">@item.product_name.Substring(0, 30)... </p>
@@ -43,3 +46,24 @@
         }
     </div>
 </div>
+<button id="loadContentButton">Load Content</button>
+<script>
+    // Wait for the document to be ready
+    $(document).ready(function() {
+        // Add a click event listener to the button
+        $("#loadContentButton").click(function() {
+            // Make an AJAX request to fetch content
+            $.ajax({
+                url: "https://api.example.com/content",
+                method: "GET",
+                success: function(data) {
+                    // Update the content of the #content element with the received data
+                    $("#content").html(data);
+                },
+                error: function(error) {
+                    console.error("Error:", error);
+                }
+            });
+        });
+    });
+</script>

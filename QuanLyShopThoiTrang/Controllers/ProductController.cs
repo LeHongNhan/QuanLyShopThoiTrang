@@ -10,7 +10,7 @@ namespace QuanLyShopThoiTrang.Controllers
     public class ProductController : Controller
     {
         // GET: Product
-        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext();
+        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=MSI\CONG03;Initial Catalog=QuanLyShop;Integrated Security=True");
         public ActionResult Index()
         {
             return View();
@@ -31,18 +31,18 @@ namespace QuanLyShopThoiTrang.Controllers
         }
         public ActionResult SanPhamNew()
         {
-            var listNew = db.Products.Take(10).OrderByDescending(sp=>sp.product_id).ToList();
+            var listNew = db.Products.Take(10).OrderByDescending(sp => sp.Dateadd).ToList();
 
             return View(listNew);
         }
+
         public ActionResult Details(int maSP)
         {
-            var sp = db.Products.Where(s=>s.product_id == maSP).FirstOrDefault();
+            var sp = db.Products.Where(s => s.product_id == maSP).FirstOrDefault();
             if (sp == null)
             {
                 return Content("Khong tim thay");
             }
-
             return View(sp);
         }
 
