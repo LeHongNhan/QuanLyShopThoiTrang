@@ -9,7 +9,7 @@ namespace QuanLyShopThoiTrang.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=MSI\CONG03;Initial Catalog=QuanLyShop;Integrated Security=True");
+        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=LAPTOP-IH11UO7O;Initial Catalog=QuanLyShop;Integrated Security=True");
         public ActionResult Index()
         {
             return View();

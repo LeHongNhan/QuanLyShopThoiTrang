@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
 using QuanLyShopThoiTrang.Models;
+using MoreLinq;
+    
 namespace QuanLyShopThoiTrang.Controllers
 {
     public class ProductController : Controller
     {
         // GET: Product
-        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=MSI\CONG03;Initial Catalog=QuanLyShop;Integrated Security=True");
+        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=LAPTOP-IH11UO7O;Initial Catalog=QuanLyShop;Integrated Security=True");
         public ActionResult Index()
         {
             return View();
@@ -31,7 +33,7 @@ namespace QuanLyShopThoiTrang.Controllers
         }
         public ActionResult SanPhamNew()
         {
-            var listNew = db.Products.Take(10).OrderByDescending(sp => sp.Dateadd).ToList();
+            var listNew = db.Products.Take(10).OrderByDescending(sp => sp.category_id).ToList();
 
             return View(listNew);
         }
@@ -43,6 +45,8 @@ namespace QuanLyShopThoiTrang.Controllers
             {
                 return Content("Khong tim thay");
             }
+            List<ProductVariant> listVariants = db.ProductVariants.Select(i => i).DistinctBy(i => i.ImageSP).Where(s => s.product_id == sp.product_id).ToList();
+            ViewBag.listVariants = listVariants;
             return View(sp);
         }
 

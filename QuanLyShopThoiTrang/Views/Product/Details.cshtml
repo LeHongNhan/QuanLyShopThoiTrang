@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
 }
 
-<h2>Details</h2>
+
 <link href="~/Asset/style.css" rel="stylesheet" />
 <div>
     <div class="card-wrapper">
@@ -14,35 +14,129 @@
             <div class="product-imgs">
                 <div class="img-display">
                     <div class="img-showcase">
-                        <img src="~/Image/AoKhoac/aokhoacdaykeo1.jpg" alt="image">
-                        <img src="~/Image/AoKhoac/aokhoacdaykeo2.jpg" alt="image">
-                        <img src="~/Image/AoKhoac/aokhoacdaykeo3.jpg" alt="image">
-                        <img src="~/Image/AoKhoac/aokhoacdaykeo4.jpg" alt="image">
+                        @{int count = 1; }
+                        @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listVariants)
+                        {
+                            if (Model.category_id == 1)
+                            {
+                                <img src="~/Image/AoThun/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 2)
+                            {
+                                <img src="~/Image/SoMi/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 5)
+                            {
+                                <img src="~/Image/AoKhoac/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 6)
+                            {
+                                <img src="~/Image/AoKhoac/@item.ImageSP" alt="image">
+                            }
+
+                            if (Model.category_id == 7 || Model.category_id == 8)
+                            {
+                                <img src="~/Image/QuanDai/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 9 && Model.category_id == 9)
+                            {
+                                <img src="~/Image/QuanShort/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 10 || Model.category_id == 11)
+                            {
+                                <img src="~/Image/VayDam/@item.ImageSP" alt="image">
+                            }
+                            if (Model.category_id == 12 || Model.category_id == 13)
+                            {
+                                <img src="~/Image/NonGiay/@item.ImageSP" alt="image">
+                            }
+                        }
+
                     </div>
                 </div>
                 <div class="img-select">
-                    <div class="img-item">
-                        <a href="#" data-id="1">
-                            <img src="~/Image/AoKhoac/aokhoacdaykeo1.jpg" alt="image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="2">
-                            <img src="~/Image/AoKhoac/aokhoacdaykeo2.jpg" alt="image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="3">
-                            <img src="~/Image/AoKhoac/aokhoacdaykeo3.jpg" alt="image">
-                        </a>
-                    </div>
-                    <div class="img-item">
-                        <a href="#" data-id="4">
-                            <img src="~/Image/AoKhoac/aokhoacdaykeo4.jpg" alt="image">
-                        </a>
-                    </div>
+                    @{count = 1; }
+                    @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listVariants)
+                    {
+                        if (Model.category_id == 1)
+                        {
+
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/AoThun/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 2)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/SoMi/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 5)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/AoKhoac/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 6)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/AoKhoac/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+
+                        if (Model.category_id == 7 || Model.category_id == 8)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/QuanDai/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 9 && Model.category_id == 9)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/QuanShort@item.ImageSP/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 10 || Model.category_id == 11)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/VayDam/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+                        if (Model.category_id == 12 || Model.category_id == 13)
+                        {
+                            <div class="img-item">
+                                <a href="#" data-id="@count">
+                                    <img class="hinh-san-pham" src="~/Image/NonGiay/@item.ImageSP" alt="image">
+                                </a>
+                            </div>
+                            count++;
+                        }
+
+
+                    }
                 </div>
-            </div>
+                </div>
             <!-- card right -->
             <div class="product-content">
                 <h2 class="product-title">@Html.DisplayFor(model => model.product_name)</h2>
@@ -53,8 +147,8 @@
 
                 <div class="product-detail">
                     <h2>Mô tả sản phẩm </h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, perferendis eius. Dignissimos, labore suscipit. Unde.</p>
+                    <p>@Html.DisplayFor(model=>model.Title)</p>
+                    
                     <div class="flex">
                         <div class="btn" id="type01"><input type="radio" name="color">Hồng</input></div>
                         <div class="btn" id="type02"><input type="radio" name="color">Đen</input></div>

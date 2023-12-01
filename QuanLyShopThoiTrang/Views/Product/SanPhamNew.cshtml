@@ -7,7 +7,8 @@
 <center>
     <h2>New</h2>
 </center>
-
+<script src="https://kit.fontawesome.com/6f8c594e7b.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="~/Asset/style/style.css" />
 
 <table class="table">
     <tr>
@@ -33,70 +34,68 @@
             <div class="row new-sp">
                 @foreach (var item in Model)
                 {
-                    <div class="col-6 col-md-3 card-san-pham">
-                        <div class="link-san-pham">
-                            <a class="link-click" href="@Url.Action("Details", "Product", new { maSP = item.category_id })">
-                                @if (item.category_id == 1)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 2)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 5)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 6)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
-                                }
+                            <div class="col-6 col-md-3 card-san-pham">
+                                <div class="link-san-pham">
+                                    <a class="link-click" href="@Url.Action("Details", "Product", new { maSP = item.category_id })">
+                                        @if (item.category_id == 1)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/AoThun/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 2)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/SoMi/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 5)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/AoKhoac/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 6)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/AoKhoac/@item.ImageSP" alt="" width="100%">
+                                        }
 
-                                @if (item.category_id == 7 || item.category_id == 8)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 9 && item.category_id == 9)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 10 || item.category_id == 11)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
-                                }
-                                @if (item.category_id == 12 || item.category_id == 13)
-                                {
-                                    <img style="height:350px" st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
-                                }
+                                        @if (item.category_id == 7 || item.category_id == 8)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/QuanDai/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 9 && item.category_id == 9)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/QuanShort/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 10 || item.category_id == 11)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/VayDam/@item.ImageSP" alt="" width="100%">
+                                        }
+                                        @if (item.category_id == 12 || item.category_id == 13)
+                                        {
+                                            <img class="hinh-san-pham img-responsive" src="~/Image/NonGiay/@item.ImageSP" alt="" width="100%">
+                                        }
+                                    </a>
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart add-to-cart-btn">
+                                            <!-- <div class="spinner-grow" >
+                        <span class="sr-only">Loading...</span>
+                    </div> -->
+                                            <i class="fa fa-cart-shopping cart"></i>
+                                            Thêm vào giỏ hàng
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Nut them vao gio hang -->
 
-
-                            </a>
-                            <div class="product-action">
-                                <a href="#" class="btn-product btn-cart add-to-cart-btn">
-                                    <!-- <div class="spinner-grow" >
-                                        <span class="sr-only">Loading...</span>
-                                    </div> -->
-                                    <i class="fa fa-cart-shopping cart"></i>
-                                    Thêm vào giỏ hàng
-                                </a>
+                                <div class="body-san-pham">
+                                    <div class="phan-loai">
+                                        <a class="link-phan-loai" href="">JumpSuit</a>
+                                    </div>
+                                    <h3 class="tieu-de" style="line-height: 13px;">
+                                        <a class="tieu-de-link"
+                                           href="@Url.Action("Details", "Product", new { maSP =item.product_id })">
+                                            @item.product_name  
+                                        </a>
+                                        <div style="padding-top:10px" class="gia-san-pham">₫320.000</div>
+                                    </h3>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Nut them vao gio hang -->
-
-                        <div class="body-san-pham">
-                            <div class="phan-loai">
-                                <a class="link-phan-loai" href="">JumpSuit</a>
-                            </div>
-                            <h3 class="tieu-de">
-                                <a class="tieu-de-link"
-                                   href="https://theciu.vn/product/jumpsuit-nga-n-hai-day-the-c-i-u-daffy-jumpsuit">
-                                    @Html.DisplayFor(modelItem => item.product_name)
-                                </a>
-                                <div class="gia-san-pham">@Html.DisplayFor(modelItem => item.price)</div>
-                            </h3>
-                        </div>
-                    </div>
                 }
             </div>
         </center>
