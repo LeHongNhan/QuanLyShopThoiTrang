@@ -87,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asset\JavaScript1.js" />
-    <Content Include="Asset\style\style.css" />
+    <Content Include="Asset\style\styleNew.css" />
     <Content Include="Asset\style\StyleSheet1.css" />
     <Content Include="Global.asax" />
     <Content Include="Image\AoKhoac\aokhoacdaykeo1.jpg" />

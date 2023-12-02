@@ -47,6 +47,8 @@ namespace QuanLyShopThoiTrang.Controllers
             }
             List<ProductVariant> listVariants = db.ProductVariants.Select(i => i).DistinctBy(i => i.ImageSP).Where(s => s.product_id == sp.product_id).ToList();
             ViewBag.listVariants = listVariants;
+            List<ProductVariant> listColor = db.ProductVariants.Select(i => i).Where(s => s.product_id == sp.product_id).DistinctBy(i => i.color_id).ToList();
+            ViewBag.listColor = listColor;
             return View(sp);
         }
 

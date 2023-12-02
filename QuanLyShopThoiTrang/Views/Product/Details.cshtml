@@ -6,7 +6,7 @@
 }
 
 
-<link href="~/Asset/style.css" rel="stylesheet" />
+<link href="~/Asset/styleDetails.css" rel="stylesheet" />
 <div>
     <div class="card-wrapper">
         <div class="card">
@@ -136,7 +136,7 @@
 
                     }
                 </div>
-                </div>
+            </div>
             <!-- card right -->
             <div class="product-content">
                 <h2 class="product-title">@Html.DisplayFor(model => model.product_name)</h2>
@@ -147,23 +147,18 @@
 
                 <div class="product-detail">
                     <h2>Mô tả sản phẩm </h2>
-                    <p>@Html.DisplayFor(model=>model.Title)</p>
-                    
-                    <div class="flex">
-                        <div class="btn" id="type01"><input type="radio" name="color">Hồng</input></div>
-                        <div class="btn" id="type02"><input type="radio" name="color">Đen</input></div>
-                        <div class="btn" id="type03"><input type="radio" name="color">Da người</input></div>
-                        <div class="btn" id="type04"><input type="radio" name="color">Xám</input></div>
-                    </div>
-
-
-
-
-
+                    <p>@Html.DisplayFor(model => model.Title)</p>
                     <ul>
-                        <li>Màu: <span>Đen</span></li>
+                        <li>Màu: 
+                            <select>
+                                @foreach (QuanLyShopThoiTrang.Models.ProductVariant items in ViewBag.listColor)
+                                {
+                                    <option value="@items.color_id">@items.Color.color_name</option>
+                                }
+                            </select>
+                        </li>
                         <li>Tình trạng: <span>Còn hàng</span></li>
-                        <li>Loại sản phẩm: <span>Giày</span></li>
+                        <li>Loại sản phẩm: <span>@Html.DisplayFor(Model=>Model.Category.category_name)</span></li>
                         <li>Khu vực giao hàng: <span>Toàn quốc</span></li>
                         <li>Chi phí vận chuyển: <span>Miễn phí</span></li>
                     </ul>
@@ -198,30 +193,31 @@
             </div>
         </div>
     </div>
+<div/>
 
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
-    <script>
-        const imgs = document.querySelectorAll('.img-select a');
-        const imgBtns = [...imgs];
-        let imgId = 1;
+        <script>
+            const imgs = document.querySelectorAll('.img-select a');
+            const imgBtns = [...imgs];
+            let imgId = 1;
 
-        imgBtns.forEach((imgItem) => {
-            imgItem.addEventListener('click', (event) => {
-                event.preventDefault();
-                imgId = imgItem.dataset.id;
-                slideImage();
+            imgBtns.forEach((imgItem) => {
+                imgItem.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    imgId = imgItem.dataset.id;
+                    slideImage();
+                });
             });
-        });
 
-        function slideImage() {
-            const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+            function slideImage() {
+                const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
-            document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-        }
+                document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+            }
 
-        window.addEventListener('resize', slideImage);
-        //==========================================================
+            window.addEventListener('resize', slideImage);
+            //==========================================================
 
-    </script>
+        </script>
