@@ -157,6 +157,15 @@
                                 }
                             </select>
                         </li>
+                        <li>Size: 
+                            <select>
+                                @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listSize)
+                                {
+                                    <option value="@item.size_id">@item.Size.size_name</option>
+                                }
+                                <option value="value">text</option>
+                            </select>
+                        </li>
                         <li>Tình trạng: <span>Còn hàng</span></li>
                         <li>Loại sản phẩm: <span>@Html.DisplayFor(Model=>Model.Category.category_name)</span></li>
                         <li>Khu vực giao hàng: <span>Toàn quốc</span></li>
