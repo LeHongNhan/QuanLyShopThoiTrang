@@ -1,0 +1,92 @@
+﻿@using QuanLyShopThoiTrang.Models;
+@model List<GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
+}
+
+<h1 style="font-weight: bold; text-align: center; padding: 2rem 0; letter-spacing: 1px; text-transform: uppercase;">Giỏ Hàng</h1>
+
+<table class="table">
+    <tr>
+
+        <th>
+            Sản Phẩm
+        </th>
+
+        <th>
+            Giá
+        </th>
+        <th>
+            Số Lượng
+        </th>
+        <th>
+            Tổng cộng
+        </th>
+        <th>Delete</th>
+        <th>Update</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { id = item.iProductid }))
+            {
+                <td class="d-flex justify-content-between ">
+                    <img src="~/Image/SanPham/@item.iImage" style="width:10vmin;height:10vmin" />
+                    <span> @item.iTensp</span>
+                </td>
+                <td> @string.Format("{0:0,0}", item.dPrice)</td>
+                <td><input type="number" name="txt_SoLuong" value="@item.iSoluong" style="width:30px" /></td>
+                <td> @string.Format("{0:0,0}", item.dToltalPrice)</td>
+                <td><a class="btn btn-danger" href="@Url.Action("XoaGioHang", "GioHang", new { @id = item.iProductid })">Delete</a></td>
+                <td><input class="btn btn-primary" type="submit" value="Update" /></td>
+            }
+
+        </tr>
+
+    }
+    @using (Html.BeginForm("Dathang", "GioHang", FormMethod.Post))
+    {
+
+        <tr style="background-color:lightyellow">
+
+            <td colspan="1" style="color:blue; font-weight:bold; text-align: right">Tổng Cộng: </td>
+            <td style="color:red; font-weight:bold">@ViewBag.TongSL</td>
+            <td colspan="2" style="color:red; font-weight:bold">@string.Format("{0:0,0}", ViewBag.TongTT) VND</td>
+            <td colspan="2">
+                
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4">
+                <h2>Thông Tin Người Nhận Hàng</h2>
+
+                <div class="form-group">
+                    @Html.Label("Tên Người Nhận:")
+                    @Html.TextBox("txt_RecipientName", null, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Địa Chỉ Nhận Hàng:")
+                    @Html.TextArea("txt_ShippingAddress", null, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Số Điện Thoại Người Nhận:")
+                    @Html.TextBox("txt_PhoneNumber", null, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.Label("Email Người Nhận:")
+                    @Html.TextBox("txt_RecipientEmail", null, new { @class = "form-control" })
+                </div>
+
+                <input class="btn btn-primary form-controll"  style=" margin-left:50%" type="submit" value="Đặt Hàng Ngay" />
+            </td>
+            
+        </tr>
+    }
+
+</table>

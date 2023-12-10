@@ -1,0 +1,31 @@
+﻿ul.pagination {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    /* Tùy chỉnh giao diện các mục danh sách phân trang */
+    ul.pagination li {
+        display: inline;
+        margin-right: 5px;
+    }
+
+        /* Thiết lập các liên kết phân trang */
+        ul.pagination li a {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+            /* Hover state cho liên kết phân trang */
+            ul.pagination li a:hover {
+                background-color: #2980b9;
+            }
+
+        /* Thiết lập trạng thái active cho trang hiện tại */
+        ul.pagination li.active a {
+            background-color: #2c3e50;
+        }

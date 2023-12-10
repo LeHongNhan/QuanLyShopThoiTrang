@@ -1,0 +1,107 @@
+﻿@model IPagedList<QuanLyShopThoiTrang.Models.Product>
+@using PagedList;
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "ProductVariantPartials";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Danh sách tất cả các sản phẩm</h2>
+
+@*@if (TempData["errorDelete"] != null)
+    {
+        <h2 style="text-align: center; margin: 0 auto">@TempData["errorDelete"]</h2>
+    }*@
+
+<table class="table table-bordered table-light table-hover p-0">
+    <tr class="bg-secondary">
+        <th style="text-align: center; vertical-align: middle; width: 200px">
+            @Html.DisplayName("Tên sản phẩm")
+        </th>
+        <th style="text-align: center; vertical-align: middle; width: 300px">
+            @Html.DisplayName("Tiêu đề")
+        </th>
+        <th style="text-align: center; vertical-align: middle;">
+            @Html.DisplayName("Gía")
+        </th>
+        <th style="text-align: center; vertical-align: middle;">
+            @Html.DisplayName("Danh mục")
+        </th>
+        <th style="text-align: center; vertical-align: middle;">
+            @Html.DisplayName("Hình ảnh")
+        </th>
+        <th style="text-align: center; vertical-align: middle;">
+            @Html.DisplayName("Ngày thêm")
+        </th>
+        <th style="text-align: center; vertical-align: middle;">
+            Chức năng
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.category_id)
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+
+                <img style="height:135px" st class="card-img-top" src="~/Image/SanPham/@item.ImageSP" />
+
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.Dateadd)
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+
+                @Html.ActionLink("Edit", "SuaSP", new { id = item.product_id }) |
+                @Html.ActionLink("Delete", "XoaSP", new { id = item.product_id })
+
+            </td>
+        </tr>
+    }
+    <div>
+        <button type="submit" style="background-color: antiquewhite; margin: 10px; border-radius: 5px; cursor: pointer; ">
+            <a href="@Url.Action("ThemSP")" style="text-decoration: none; color: inherit;">
+                Thêm Sản Phẩm
+            </a>
+        </button>
+    </div>
+
+</table>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        @if (Model.PageCount > 1)
+        {
+            <li class="page-item @(Model.IsFirstPage ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductPatial", "Product", new { page = 1 })" tabindex="-1" aria-disabled="@(Model.IsFirstPage ? "true" : "false")">Đầu</a>
+            </li>
+
+            <li class="page-item @(Model.IsFirstPage ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductPatial", "Product",  new { page = Model.PageNumber - 1 })" tabindex="-1" aria-disabled="@(Model.IsFirstPage ? "true" : "false")">Trước</a>
+            </li>
+            for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("ProductPatial","Product",  new { page = i })">@i</a>
+                </li>
+            }
+
+            <li class="page-item @(Model.IsLastPage ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductPatial", "Product", new { page = Model.PageNumber + 1 })">Sau</a>
+            </li>
+
+            <li class="page-item @(Model.IsLastPage ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ProductPatial", "Product", new { page = Model.PageCount })">Cuối</a>
+            </li>
+        }
+    </ul>
+</nav>

@@ -8,36 +8,14 @@
                 {
                     <div class="card d-inline " style="margin-left:2%;margin-right:2%">
 
-                        @if (item.category_id == 1)
+                        <img st class="card-img-top" src="~/Image/SanPham/@item.ImageSP" />
+
+                        @if (item.category_id != null)
                         {
-                            <img  st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
+                            <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
                         }
-                        @if (item.category_id == 2)
-                        {
-                            <img  st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
-                        {
-                            <img  st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 7 || item.category_id == 8)
-                        {
-                            <img  st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 9 && item.category_id == 9)
-                        {
-                            <img  st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 10 || item.category_id == 11)
-                        {
-                            <img  st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 12 || item.category_id == 13)
-                        {
-                            <img  st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
-                        }
-                        <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
-                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
+
+                        <a href="~/Product/Details?maSP=@item.product_id"  class="btn custom-btn position-absolute text-light" style="z-index:2;top:50%;left:32%;">Mua Ngay</a>
                     </div>
                 }
             </div>
@@ -48,38 +26,10 @@
                 {
                     <div class="card d-inline " style="margin-left:2%;margin-right:2%">
 
-                        @if (item.category_id == 1)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 2)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
-                        }
+                        <img style="height:400px" st class="card-img-top" src="~/Image/SanPham/@item.ImageSP" />
 
-                        @if (item.category_id == 7 || item.category_id == 8)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 9 && item.category_id == 9)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 10 || item.category_id == 11)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 12 || item.category_id == 13)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
-                        }
                         <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
-                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
-
+                        <a href="~/Product/Details?maSP=@item.product_id" class="btn custom-btn position-absolute text-light" style="z-index:2;top:50%;left:32%;">Mua Ngay</a>
                     </div>
                 }
             </div>
@@ -91,37 +41,12 @@
 
                     <div class="card d-inline " style="margin-left:2%;margin-right:2%">
 
-                        @if (item.category_id == 1)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/AoThun/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 2)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/SoMi/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 3 || item.category_id == 4 || item.category_id == 5 || item.category_id == 6)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/AoKhoac/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 7 || item.category_id == 8)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanDai/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 9 && item.category_id == 9)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/QuanShort/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 10 || item.category_id == 11)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/VayDam/@item.ImageSP" />
-                        }
-                        @if (item.category_id == 12 || item.category_id == 13)
-                        {
-                            <img style="height:400px" st class="card-img-top" src="~/Image/NonGiay/@item.ImageSP" />
-                        }
+
+                        <img style="height:400px" st class="card-img-top" src="~/Image/SanPham/@item.ImageSP" />
+
                         <h4 class="CateProduct position-absolute"> @item.Category.category_name</h4>
 
-                        <button type="button" class="btn custom-btn position-absolute" style="z-index:2;top:50%;left:32%;">Mua Ngay</button>
+                        <a href="~/Product/Details?maSP=@item.product_id" class="btn custom-btn position-absolute text-light" style="z-index:2;top:50%;left:32%;">Mua Ngay</a>
                     </div>
                 }
             </div>

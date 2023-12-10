@@ -1,32 +1,91 @@
-﻿body {
-
-}
-.dropdown:hover .dropdown-menu {
-}
-
-.nav-item .dropdown-menu .dropdown .dropdown-item:hover {
-    background-color: #808080;
-    transition: top 0.3s ease;
-    color: yellow;
+﻿
+.main-menu {
+    z-index: 10;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.nav-item .dropdown-menu .dropdown .dropdown-menu {
-    z-index: 1;
-    background-color: #e9e8e8;
-    position: absolute;
-    display: none;
-}
+    .main-menu li {
+        display: inline-block;
+        position: relative;
+    }
 
-.nav-item .dropdown-menu .dropdown:hover > .dropdown-menu {
-    top: -10%;
+.main-link {
+    z-index:10;
+    text-decoration: none;
+    color: #333;
     display: block;
+    padding: 10px;
+    background-color: #f9f1f1;
 }
 
-.nav-item .dropdown-menu .dropdown .dropdown-menu .dropdown-item:hover {
-    transition: top 0.3s ease;
-    color: yellow;
-    background-color: #808080;
+.sub-menu {
+    z-index: 10;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #e0e0e0;
+    width: 200px; /* Adjust width as needed */
 }
+
+    .sub-menu li {
+        display: block;
+    }
+
+.sub-link {
+    z-index: 10;
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+    .sub-link:hover {
+        color: #ff6a00;
+    }
+.sub-sub-menu {
+    z-index: 10;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #d1d1d1;
+    width: 200px; /* Adjust width as needed */
+   
+}
+
+/* Hover effect */
+.main-menu li:hover > .sub-menu {
+    display: block;
+    
+}
+
+.sub-menu li:hover > .sub-sub-menu {
+    display: block;
+   
+}
+.sub-sub-menu li a {
+    
+    color: #333;
+    text-decoration: none;
+    margin:10px;
+}
+.sub-sub-menu li {
+    padding: 10px;
+}
+    .sub-sub-menu li:hover a {
+        color:#ff6a00;
+        text-decoration: solid;
+        
+    }
+.arrow {
+    margin-left: 10px;
+}
+
+/* Add more styles as needed */
+
+
 
 .carousel-inner {
     display: flex;

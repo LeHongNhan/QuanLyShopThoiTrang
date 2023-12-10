@@ -1,0 +1,26 @@
+﻿.admin-lien-ket {
+    display: block;
+    width: 100% ;
+    text-decoration: none;
+    font-size: large;
+    font-weight: 500;
+    color: #c2c7d0;
+    height: 50px;
+    margin: 0px;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.admin-lien-ket:hover {
+    background-color: blanchedalmond;
+    text-decoration: none;
+}
+
+.dong-chua-lien-ket {
+    width: 45vmin;
+    padding: 0px !important;
+}
+
+.container-fluid {
+    padding: 0px !important;
+}

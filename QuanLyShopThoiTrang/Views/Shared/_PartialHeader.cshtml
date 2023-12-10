@@ -1,34 +1,40 @@
-﻿<div class="table" >
+﻿<div class="table bg-light" >
     <div class="row ">
-        <div class="col-6 mt-3 text-right">
-            <img class="img-fluid" style="width:250px;height:50px;" src="~/Image/Logo/Logo1.png" />
+        <div class="col-5"></div>
+        <div class="col-1 mt-3 text-right">
+            <img class="ml-3" style="width:250px;height:50px;" src="~/Image/Logo/Logo1.png" />
         </div>      
         <div class="col-6 mt-3 ">
-            <form class="form-inline" style="margin-left:300px">               
+            <form  method="get" action="~/Product/SearchSanPham" class="form-inline" style="margin-left:300px">               
                 <button class="btn btn-link text-secondary" type="submit"><i class="fas fa-search "></i></button>
-                <input class="form-control border-0" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
-               
+                <input class="form-control border-0" name="txt_Search" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">               
             </form>
             <hr style="margin-left:300px;color:black" class="mt-1" />
         </div>
     </div>
     <div class="row bg-dark">
         <div class="col-6 bg-dark">
-            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark" style="position: sticky; top: 0;padding: 10px; z-index: 1000; ">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto " style="margin-left:150px ;">
+                    <ul class="navbar-nav mr-auto main-menu" style="margin-left:150px ;">
                         <li class="nav-item active" style=" width:100px">
-                            <a class="nav-link text-white text-lg font-weight-bold" href="#">Trang Chủ </a>
+                            <a class="nav-link text-white text-lg font-weight-bold" href="~/Home/Index">Trang Chủ </a>
                         </li>
                         <li class="nav-item style=" width:100px"">
-                            <a class="nav-link text-white text-lg font-weight-bold" href="#">New</a>
+                            <a class="nav-link text-white text-lg font-weight-bold ml-3" href="~/Product/SanPhamNew">New</a>
                         </li>
-                      @Html.Action("_PartialCate","Product")
+                        <li id="SanPham" class="nav-item dropdown" style="width:150px">
+                            <a id="SanPhamCon" class="nav-link text-white text-lg font-weight-bold ml-3" href="~/Product/AllSP" @*id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"*@>
+                                Sản Phẩm
+                            </a>
+                            @Html.Action("_PartialCate", "Product")
+                        </li>
+                       
                         <li class="nav-item" style=" width:100px">
                             <a class="nav-link active text-lg font-weight-bold text-white" href="#">Liên Hệ<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item" style=" width:150px">
-                            <a class="nav-link active text-lg font-weight-bold text-white" href="#">BEST SELLER<span class="sr-only">(current)</span></a>
+                            <a class="nav-link active text-lg font-weight-bold text-white" href="~/Home/BestSeller">BEST SELLER<span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
 
@@ -36,13 +42,21 @@
             </nav>
 
         </div>
-        <div class=" col-6 text-warning mt-3 text-right">
-            <!-- Cart Icon -->
-            <i class="fas fa-shopping-cart  ml-3 mr-3 " style="width: 50px; color: sandybrown"></i>
-            <!-- Login Icon -->
-          
-            <span style="margin-right:200px;margin-left:10px">
-                <a href="@Url.Action("DangNhap", "DN")" style="text-decoration: none;color:sandybrown">  <i class="fas fa-user  ml-3"></i> &emsp; Đăng Nhập</a>
+        <div class=" col-6 text-warning mt-3 text-right">          
+            <span class="nav-link" style="margin-right:200px;margin-left:10px">
+
+                <a href="@Url.Action("GioHang", "GioHang")" class="text-warning mt-3 text-right">@Html.Action("GioHangPartial", "GioHang")</a>
+                @if (Session["account"] != null)
+                {
+                    <!-- Nút đăng xuất -->
+                    <a href="@Url.Action("DangXuat", "DN")" style="text-decoration: none;color:sandybrown">  <i class="fas fa-user  ml-3"></i> &emsp; Đăng Xuất</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("DangNhap", "DN")" style="text-decoration: none;color:sandybrown">  <i class="fas fa-user  ml-3"></i> &emsp; Đăng Nhập</a>
+                }
+
+
             </span>
         </div>
     </div>

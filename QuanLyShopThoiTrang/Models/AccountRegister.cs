@@ -105,6 +105,12 @@ namespace QuanLyShopThoiTrang.Models
         [Required(ErrorMessage = "Nhập số điện thoại vào đây!")]
         [PhoneValidation(ErrorMessage = "Số điện thoại không hợp lệ (10 kí từ số).")]
         public string DienThoai { get; set; }
+        [Required(ErrorMessage = "Nhập địa chỉ vào đây!")]
+        
+        public string Adress { get; set; }
+        [Required(ErrorMessage = "Nhập tên đăng nhập vào đây!")]
+      
+        public string UserName { get; set; }
 
         [Required(ErrorMessage = "Nhập mật khẩu vào đây!")]
         [MustMatch(ErrorMessage = "Mật khẩu và Nhập lại mật khẩu không trùng khớp.")]

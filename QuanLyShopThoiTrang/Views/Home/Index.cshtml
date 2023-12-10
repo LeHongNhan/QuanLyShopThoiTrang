@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
 }
@@ -8,9 +7,72 @@
 @Html.Action("_PatialOutstanding", "Home")
 <br />
 <h2 class="text-center" style="margin-top:50px;margin-bottom:30px">NEWARRIVALS</h2>
-@Html.Action("_PatialNEWARRIVALS", "Home")
+<div id="productContainer">
+    <!-- Tải ban đầu mà không có mô hình -->
+    @Html.Action("_PartialNEWARRIVALS", "Home")
+</div>
+<button class="btn btn-primary" id="scrollBtn" style="position: fixed; bottom: 20px; right: 20px; display: none; padding: 10px; background-color: #333; color: #fff; border: none; cursor: pointer;">Scroll to Top</button>
+<button class="btn custom-btn " id="loadMoreBtn" style="color:black;border-bottom-color:black;margin-left:43%">Xem  Thêm</button>
 
-<br />
-<br />
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    var skip = 8; // Giá trị khởi tạo
 
+    function loadMoreProducts() {
+        // Thực hiện một yêu cầu AJAX để lấy thêm sản phẩm
+        $.ajax({
+            url: "/Home/_PartialNEWARRIVALS", // Thay đổi "ControllerName" thành tên thực tế của bạn
+            method: "GET",
+            data: { skip: skip },
+            success: function (data) {
+                // Thêm các sản phẩm mới vào container
+                $("#productContainer").append(data);
+                skip += 8; // Tăng giá trị skip cho yêu cầu tiếp theo
+                console.log("AJAX success:", data);
+            },
+            error: function (xhr, status, error) {
+                console.error("AJAX error: " + status, error);
+                // Xử lý lỗi nếu cần
+            }
+        });
+    }
 
+    // Tải ban đầu
+    loadMoreProducts();
+
+    $("#loadMoreBtn").on("click", function () {
+        // Kích hoạt việc tải thêm khi nút được nhấp
+        console.log("Load More button clicked");
+        loadMoreProducts();
+    });
+</script>
+<script >
+    document.addEventListener('DOMContentLoaded', function () {
+        var scrollBtn = document.getElementById('scrollBtn');
+
+        // Show/hide the scroll button based on the scroll position
+        window.onscroll = function () {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollBtn.style.display = 'block';
+            } else {
+                scrollBtn.style.display = 'none';
+            }
+        };
+
+        // Scroll to the top when the button is clicked
+        scrollBtn.addEventListener('click', function () {
+            scrollToTop();
+        });
+
+        // Function to smoothly scroll to the top
+        function scrollToTop() {
+            var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            if (currentPosition > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 32);
+            }
+        }
+    });
+
+</script>

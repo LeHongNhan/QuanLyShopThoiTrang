@@ -1,8 +1,5 @@
-﻿
-@{
-    ViewBag.Title = "AllSP";
-    Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
-}
+﻿@Html.Action("ProductPatial", "Product")
+<h2 class="text-center text-uppercase ">Best Seller</h2>
 <div class="table">
     <div class="row">
         <div class="col-6">
@@ -10,12 +7,11 @@
         </div>
         <div class="col-6 ">
             <form class="form-inline" style="margin-left:25%;border: 1px solid #808080;margin-right:25%">
-                <button class="btn btn-link text-secondary" type="submit" ><i class="fas fa-search" style="color:#a0643d"></i></button>
+                <button class="btn btn-link text-secondary" type="submit"><i class="fas fa-search" style="color:#a0643d"></i></button>
                 <input class="form-control border-0" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
             </form>
         </div>
-        
+
     </div>
 </div>
-@Html.Action("ProductPatial","Product")
 

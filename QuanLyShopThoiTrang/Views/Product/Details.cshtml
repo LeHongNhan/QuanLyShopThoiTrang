@@ -15,218 +15,129 @@
                 <div class="img-display">
                     <div class="img-showcase">
                         @{int count = 1; }
-                        @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listVariants)
-                        {
-                            if (Model.category_id == 1)
-                            {
-                                <img src="~/Image/AoThun/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 2)
-                            {
-                                <img src="~/Image/SoMi/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 5)
-                            {
-                                <img src="~/Image/AoKhoac/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 6)
-                            {
-                                <img src="~/Image/AoKhoac/@item.ImageSP" alt="image">
-                            }
-
-                            if (Model.category_id == 7 || Model.category_id == 8)
-                            {
-                                <img src="~/Image/QuanDai/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 9 && Model.category_id == 9)
-                            {
-                                <img src="~/Image/QuanShort/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 10 || Model.category_id == 11)
-                            {
-                                <img src="~/Image/VayDam/@item.ImageSP" alt="image">
-                            }
-                            if (Model.category_id == 12 || Model.category_id == 13)
-                            {
-                                <img src="~/Image/NonGiay/@item.ImageSP" alt="image">
-                            }
+                        @foreach (var item in ViewBag.listVariants)
+                        {                            
+                                <img style="height:55vmin" src="~/Image/SanPham/@item" alt="image">                            
                         }
-
                     </div>
-                </div>
-                <div class="img-select">
-                    @{count = 1; }
-                    @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listVariants)
-                    {
-                        if (Model.category_id == 1)
-                        {
-
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/AoThun/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
+                    <div class="img-select">
+                        @{count = 1; }
+                        @foreach (var item in ViewBag.listVariants)
+                        {                           
+                                <div class="img-item">
+                                    <a href="#" data-id="@count">
+                                        <img style="width:15vmin;height:15vmin" class="hinh-san-pham" src="~/Image/SanPham/@item" alt="image">
+                                    </a>
+                                </div>
+                                count++;                          
                         }
-                        if (Model.category_id == 2)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/SoMi/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-                        if (Model.category_id == 5)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/AoKhoac/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-                        if (Model.category_id == 6)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/AoKhoac/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-
-                        if (Model.category_id == 7 || Model.category_id == 8)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/QuanDai/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-                        if (Model.category_id == 9 && Model.category_id == 9)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/QuanShort@item.ImageSP/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-                        if (Model.category_id == 10 || Model.category_id == 11)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/VayDam/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-                        if (Model.category_id == 12 || Model.category_id == 13)
-                        {
-                            <div class="img-item">
-                                <a href="#" data-id="@count">
-                                    <img class="hinh-san-pham" src="~/Image/NonGiay/@item.ImageSP" alt="image">
-                                </a>
-                            </div>
-                            count++;
-                        }
-
-
-                    }
-                </div>
-            </div>
-            <!-- card right -->
-            <div class="product-content">
-                <h2 class="product-title">@Html.DisplayFor(model => model.product_name)</h2>
-                <div class="product-price">
-                    <!-- <p class = ""</p> -->
-                    <p class="new-price">Giá: <span>@Html.DisplayFor(model => model.price)</span></p>
-                </div>
-
-                <div class="product-detail">
-                    <h2>Mô tả sản phẩm </h2>
-                    <p>@Html.DisplayFor(model => model.Title)</p>
-                    <ul>
-                        <li>Màu: 
-                            <select>
-                                @foreach (QuanLyShopThoiTrang.Models.ProductVariant items in ViewBag.listColor)
-                                {
-                                    <option value="@items.color_id">@items.Color.color_name</option>
-                                }
-                            </select>
-                        </li>
-                        <li>Size: 
-                            <select>
-                                @foreach (QuanLyShopThoiTrang.Models.ProductVariant item in ViewBag.listSize)
-                                {
-                                    <option value="@item.size_id">@item.Size.size_name</option>
-                                }
-                                <option value="value">text</option>
-                            </select>
-                        </li>
-                        <li>Tình trạng: <span>Còn hàng</span></li>
-                        <li>Loại sản phẩm: <span>@Html.DisplayFor(Model=>Model.Category.category_name)</span></li>
-                        <li>Khu vực giao hàng: <span>Toàn quốc</span></li>
-                        <li>Chi phí vận chuyển: <span>Miễn phí</span></li>
-                    </ul>
-                </div>
-
-                <div class="purchase-info">
-                    <input type="number" min="0" value="1">
-                    <button type="button" class="btn">
-                        Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
-                    </button>
-                    <button type="button" class="btn">Mua ngay</button>
-                </div>
-
-                <div class="social-links">
-                    <p>Share: </p>
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fab fa-pinterest"></i>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
+            <!-- card right -->
+        <div class="product-content">
+            <h3 class="text-uppercase font-weight-bold">@Html.DisplayFor(model => model.product_name)</h3>
+            <div class="product-price">
+                <!-- <p class = ""</p> -->
+                <p>Giá: đ<span>@Html.DisplayFor(model => model.price)</span></p>
+            </div>
+
+            <div class="product-detail">
+                <h2>Mô tả sản phẩm </h2>
+                <p>@Html.DisplayFor(model => model.Title)</p>
+                <ul>
+                    <li>
+                        Màu:
+                        <select>
+                            @foreach (var items in ViewBag.listColor)
+                            {
+                                <option>@items</option>
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        Size:
+                        <select>
+                            @foreach (var item in ViewBag.listSize)
+                            {
+                                <option>@item</option>
+                            }
+                            <option value="value"></option>
+                        </select>
+                    </li>
+                    <li>Tình trạng: <span>Còn hàng</span></li>
+                    <li>Loại sản phẩm: <span>@Html.DisplayFor(Model => Model.Category.category_name)</span></li>
+                    <li>Khu vực giao hàng: <span>Toàn quốc</span></li>
+                    <li>Chi phí vận chuyển: <span>Miễn phí</span></li>
+                </ul>
+            </div>
+           
+            <div class="purchase-info d-flex">
+                @using (Html.BeginForm("ThemVaoGiohang", "GioHang", new { @ms = Model.product_id, @strURL = Request.Url.ToString() }))
+                {
+
+                    <button type="submit" class="btn">
+                        Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
+                    </button>
+                }
+                @using (Html.BeginForm("MuaNgay", "GioHang", new { @ms = Model.product_id}))
+                {
+                    <button type="submit" class="btn">Mua ngay</button>
+                }
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                {
+                    <button type="submit" class="btn">Mua Tiếp</button>
+                }
+
+            </div>
+
+            <div class="social-links">
+                <p class="mr-3 mt-3">Share: </p>
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </div>
+        </div>
+        </div>
     </div>
-<div/>
+    <div />
 
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 
-        <script>
-            const imgs = document.querySelectorAll('.img-select a');
-            const imgBtns = [...imgs];
-            let imgId = 1;
+    <script>
+        const imgs = document.querySelectorAll('.img-select a');
+        const imgBtns = [...imgs];
+        let imgId = 1;
 
-            imgBtns.forEach((imgItem) => {
-                imgItem.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    imgId = imgItem.dataset.id;
-                    slideImage();
-                });
+        imgBtns.forEach((imgItem) => {
+            imgItem.addEventListener('click', (event) => {
+                event.preventDefault();
+                imgId = imgItem.dataset.id;
+                slideImage();
             });
+        });
 
-            function slideImage() {
-                const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+        function slideImage() {
+            const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
 
-                document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
-            }
+            document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+        }
 
-            window.addEventListener('resize', slideImage);
-            //==========================================================
+        window.addEventListener('resize', slideImage);
+                //==========================================================
 
-        </script>
+    </script>

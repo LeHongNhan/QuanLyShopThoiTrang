@@ -1,0 +1,34 @@
+﻿@model IEnumerable<QuanLyShopThoiTrang.Models.Color>
+
+@{
+    ViewBag.Title = "ColorProduct";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Color Product</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddColor")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.color_name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.color_name)
+            </td>
+            <td>
+                @Html.ActionLink("Update", "UpdateColor", new { id = item.color_id }) |
+                @Html.ActionLink("Delete", "DeleteColor", new { id = item.color_id })
+            </td>
+        </tr>
+    }
+
+</table>

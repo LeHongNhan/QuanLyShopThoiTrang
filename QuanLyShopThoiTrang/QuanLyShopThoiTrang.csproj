@@ -42,8 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="MoreLinq, Version=4.1.0.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
-      <HintPath>..\packages\morelinq.4.1.0\lib\netstandard2.0\MoreLinq.dll</HintPath>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
@@ -86,49 +89,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Asset\JavaScript1.js" />
-    <Content Include="Asset\style\styleNew.css" />
+    <Content Include="Asset\style\pagedListStyle.css" />
+    <Content Include="Asset\style\StyleAdminFunction.css" />
+    <Content Include="Asset\style\style.css" />
+    <Content Include="Asset\style\styleDetails.css" />
     <Content Include="Asset\style\StyleSheet1.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Global.asax" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo1.jpg" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo2.jpg" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo3.jpg" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo4.jpg" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo5.jpg" />
-    <Content Include="Image\AoKhoac\aokhoacdaykeo6.jpg" />
-    <Content Include="Image\AoKhoac\aokieu1.jpg" />
-    <Content Include="Image\AoKhoac\aokieu2.jpg" />
-    <Content Include="Image\AoKhoac\aokieu3.jpg" />
-    <Content Include="Image\AoKhoac\aokieu4.jpg" />
-    <Content Include="Image\AoKhoac\aokieu5.jpg" />
-    <Content Include="Image\AoKhoac\aokieu6.jpg" />
-    <Content Include="Image\AoKhoac\aokieu7.jpg" />
-    <Content Include="Image\AoKhoac\aolen1.jpg" />
-    <Content Include="Image\AoKhoac\aolen2.jpg" />
-    <Content Include="Image\AoKhoac\aolen3.jpg" />
-    <Content Include="Image\AoKhoac\aolen4.jpg" />
-    <Content Include="Image\AoKhoac\aolen5.jpg" />
-    <Content Include="Image\AoKhoac\aolen6.jpg" />
-    <Content Include="Image\AoKhoac\aolen7.jpg" />
-    <Content Include="Image\AoKhoac\aopolo1.jpg" />
-    <Content Include="Image\AoKhoac\aopolo2.jpg" />
-    <Content Include="Image\AoKhoac\aopolo3.jpg" />
-    <Content Include="Image\AoKhoac\aopolo4.jpg" />
-    <Content Include="Image\AoKhoac\aopolo5.jpg" />
-    <Content Include="Image\AoKhoac\aopolo6.jpg" />
-    <Content Include="Image\AoKhoac\cardigan1.jpg" />
-    <Content Include="Image\AoKhoac\sweater1.jpg" />
-    <Content Include="Image\AoKhoac\sweater2.jpg" />
-    <Content Include="Image\AoKhoac\sweater3.jpg" />
-    <Content Include="Image\AoKhoac\sweater4.jpg" />
-    <Content Include="Image\AoKhoac\sweater5.jpg" />
-    <Content Include="Image\AoThun\A010.jpg" />
-    <Content Include="Image\AoThun\A011.jpg" />
-    <Content Include="Image\AoThun\A020.jpg" />
-    <Content Include="Image\AoThun\A021.jpg" />
-    <Content Include="Image\AoThun\A030.jpg" />
-    <Content Include="Image\AoThun\A031.jpg" />
-    <Content Include="Image\AoThun\A07.jpg" />
     <Content Include="Image\Banner\images.jpg" />
     <Content Include="Image\Banner\Slide.png" />
     <Content Include="Image\Banner\slide1.png" />
@@ -144,81 +111,128 @@
     <Content Include="Image\Logo\Logo1.png" />
     <Content Include="Image\Logo\momo.png" />
     <Content Include="Image\Logo\vnpt.png" />
-    <Content Include="Image\NonGiay\G010.png" />
-    <Content Include="Image\NonGiay\G011.png" />
-    <Content Include="Image\NonGiay\G012.png" />
-    <Content Include="Image\NonGiay\G013.png" />
-    <Content Include="Image\NonGiay\G020.png" />
-    <Content Include="Image\NonGiay\G021.png" />
-    <Content Include="Image\NonGiay\G022.png" />
-    <Content Include="Image\NonGiay\G030.png" />
-    <Content Include="Image\NonGiay\G031.png" />
-    <Content Include="Image\NonGiay\G032.png" />
-    <Content Include="Image\NonGiay\G040.png" />
-    <Content Include="Image\NonGiay\G041.png" />
-    <Content Include="Image\NonGiay\G042.png" />
-    <Content Include="Image\NonGiay\G050.png" />
-    <Content Include="Image\NonGiay\G051.png" />
-    <Content Include="Image\NonGiay\G052.png" />
-    <Content Include="Image\NonGiay\G060.png" />
-    <Content Include="Image\NonGiay\M010.png" />
-    <Content Include="Image\NonGiay\M011.png" />
-    <Content Include="Image\NonGiay\M012.png" />
-    <Content Include="Image\NonGiay\M020.png" />
-    <Content Include="Image\NonGiay\M021.png" />
-    <Content Include="Image\NonGiay\M022.png" />
-    <Content Include="Image\NonGiay\M030.png" />
-    <Content Include="Image\NonGiay\M031.png" />
-    <Content Include="Image\NonGiay\M032.png" />
-    <Content Include="Image\NonGiay\M040.jpg" />
-    <Content Include="Image\NonGiay\M041.jpg" />
-    <Content Include="Image\NonGiay\M042.jpg" />
-    <Content Include="Image\NonGiay\M050.jpg" />
-    <Content Include="Image\QuanDai\E010.jpg" />
-    <Content Include="Image\QuanDai\E011.jpg" />
-    <Content Include="Image\QuanDai\F010.jpg" />
-    <Content Include="Image\QuanDai\F011.jpg" />
-    <Content Include="Image\QuanDai\G010.jpg" />
-    <Content Include="Image\QuanDai\G011.jpg" />
-    <Content Include="Image\QuanDai\G012.jpg" />
-    <Content Include="Image\QuanDai\H010.jpg" />
-    <Content Include="Image\QuanDai\H011.jpg" />
-    <Content Include="Image\QuanDai\I010.jpg" />
-    <Content Include="Image\QuanDai\I011.jpg" />
-    <Content Include="Image\QuanShort\A010.jpg" />
-    <Content Include="Image\QuanShort\A011.jpg" />
-    <Content Include="Image\QuanShort\B010.jpg" />
-    <Content Include="Image\QuanShort\B011.jpg" />
-    <Content Include="Image\QuanShort\B012.jpg" />
-    <Content Include="Image\QuanShort\C010.jpg" />
-    <Content Include="Image\QuanShort\C011.jpg" />
-    <Content Include="Image\QuanShort\D010.jpg" />
-    <Content Include="Image\QuanShort\D011.jpg" />
-    <Content Include="Image\SoMi\somi1.jpg" />
-    <Content Include="Image\SoMi\somi2.jpg" />
-    <Content Include="Image\SoMi\somi2B.jpg" />
-    <Content Include="Image\SoMi\somi2H.jpg" />
-    <Content Include="Image\SoMi\somi2T.jpg" />
-    <Content Include="Image\SoMi\somi3L.jpg" />
-    <Content Include="Image\SoMi\somi3T.jpg" />
-    <Content Include="Image\VayDam\D021.jpg" />
-    <Content Include="Image\VayDam\D022.jpg" />
-    <Content Include="Image\VayDam\D031.jpg" />
-    <Content Include="Image\VayDam\D041.jpg" />
-    <Content Include="Image\VayDam\D042.jpg" />
-    <Content Include="Image\VayDam\D051.jpg" />
-    <Content Include="Image\VayDam\D052.jpg" />
-    <Content Include="Image\VayDam\dam1D.jpg" />
-    <Content Include="Image\VayDam\dam2D.jpg" />
-    <Content Include="Image\VayDam\dam3T.jpg" />
-    <Content Include="Image\VayDam\dam4B.jpg" />
-    <Content Include="Image\VayDam\dam5T.jpg" />
+    <Content Include="Image\new.png" />
+    <Content Include="Image\SanPham\A010.jpg" />
+    <Content Include="Image\SanPham\A011.jpg" />
+    <Content Include="Image\SanPham\A020.jpg" />
+    <Content Include="Image\SanPham\A021.jpg" />
+    <Content Include="Image\SanPham\A030.jpg" />
+    <Content Include="Image\SanPham\A031.jpg" />
+    <Content Include="Image\SanPham\A07.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo1.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo2.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo3.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo4.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo5.jpg" />
+    <Content Include="Image\SanPham\aokhoacdaykeo6.jpg" />
+    <Content Include="Image\SanPham\aokieu1.jpg" />
+    <Content Include="Image\SanPham\aokieu2.jpg" />
+    <Content Include="Image\SanPham\aokieu3.jpg" />
+    <Content Include="Image\SanPham\aokieu4.jpg" />
+    <Content Include="Image\SanPham\aokieu5.jpg" />
+    <Content Include="Image\SanPham\aokieu6.jpg" />
+    <Content Include="Image\SanPham\aokieu7.jpg" />
+    <Content Include="Image\SanPham\aolen1.jpg" />
+    <Content Include="Image\SanPham\aolen2.jpg" />
+    <Content Include="Image\SanPham\aolen3.jpg" />
+    <Content Include="Image\SanPham\aolen4.jpg" />
+    <Content Include="Image\SanPham\aolen5.jpg" />
+    <Content Include="Image\SanPham\aolen6.jpg" />
+    <Content Include="Image\SanPham\aolen7.jpg" />
+    <Content Include="Image\SanPham\aopolo1.jpg" />
+    <Content Include="Image\SanPham\aopolo2.jpg" />
+    <Content Include="Image\SanPham\aopolo3.jpg" />
+    <Content Include="Image\SanPham\aopolo4.jpg" />
+    <Content Include="Image\SanPham\aopolo5.jpg" />
+    <Content Include="Image\SanPham\aopolo6.jpg" />
+    <Content Include="Image\SanPham\B010.jpg" />
+    <Content Include="Image\SanPham\B011.jpg" />
+    <Content Include="Image\SanPham\B012.jpg" />
+    <Content Include="Image\SanPham\C010.jpg" />
+    <Content Include="Image\SanPham\C011.jpg" />
+    <Content Include="Image\SanPham\cardigan1.jpg" />
+    <Content Include="Image\SanPham\D010.jpg" />
+    <Content Include="Image\SanPham\D011.jpg" />
+    <Content Include="Image\SanPham\D021.jpg" />
+    <Content Include="Image\SanPham\D022.jpg" />
+    <Content Include="Image\SanPham\D031.jpg" />
+    <Content Include="Image\SanPham\D041.jpg" />
+    <Content Include="Image\SanPham\D042.jpg" />
+    <Content Include="Image\SanPham\D051.jpg" />
+    <Content Include="Image\SanPham\D052.jpg" />
+    <Content Include="Image\SanPham\dam1D.jpg" />
+    <Content Include="Image\SanPham\dam2D.jpg" />
+    <Content Include="Image\SanPham\dam3T.jpg" />
+    <Content Include="Image\SanPham\dam4B.jpg" />
+    <Content Include="Image\SanPham\dam5T.jpg" />
+    <Content Include="Image\SanPham\E010.jpg" />
+    <Content Include="Image\SanPham\E011.jpg" />
+    <Content Include="Image\SanPham\F010.jpg" />
+    <Content Include="Image\SanPham\F011.jpg" />
+    <Content Include="Image\SanPham\G010.jpg" />
+    <Content Include="Image\SanPham\G010.png" />
+    <Content Include="Image\SanPham\G011.jpg" />
+    <Content Include="Image\SanPham\G011.png" />
+    <Content Include="Image\SanPham\G012.jpg" />
+    <Content Include="Image\SanPham\G012.png" />
+    <Content Include="Image\SanPham\G013.png" />
+    <Content Include="Image\SanPham\G020.png" />
+    <Content Include="Image\SanPham\G021.png" />
+    <Content Include="Image\SanPham\G022.png" />
+    <Content Include="Image\SanPham\G030.png" />
+    <Content Include="Image\SanPham\G031.png" />
+    <Content Include="Image\SanPham\G032.png" />
+    <Content Include="Image\SanPham\G040.png" />
+    <Content Include="Image\SanPham\G041.png" />
+    <Content Include="Image\SanPham\G042.png" />
+    <Content Include="Image\SanPham\G050.png" />
+    <Content Include="Image\SanPham\G051.png" />
+    <Content Include="Image\SanPham\G052.png" />
+    <Content Include="Image\SanPham\G060.png" />
+    <Content Include="Image\SanPham\H010.jpg" />
+    <Content Include="Image\SanPham\H011.jpg" />
+    <Content Include="Image\SanPham\I010.jpg" />
+    <Content Include="Image\SanPham\I011.jpg" />
+    <Content Include="Image\SanPham\M010.png" />
+    <Content Include="Image\SanPham\M011.png" />
+    <Content Include="Image\SanPham\M012.png" />
+    <Content Include="Image\SanPham\M020.png" />
+    <Content Include="Image\SanPham\M021.png" />
+    <Content Include="Image\SanPham\M022.png" />
+    <Content Include="Image\SanPham\M030.png" />
+    <Content Include="Image\SanPham\M031.png" />
+    <Content Include="Image\SanPham\M032.png" />
+    <Content Include="Image\SanPham\M040.jpg" />
+    <Content Include="Image\SanPham\M041.jpg" />
+    <Content Include="Image\SanPham\M042.jpg" />
+    <Content Include="Image\SanPham\M050.jpg" />
+    <Content Include="Image\SanPham\Q010.jpg" />
+    <Content Include="Image\SanPham\Q011.jpg" />
+    <Content Include="Image\SanPham\somi1.jpg" />
+    <Content Include="Image\SanPham\somi2.jpg" />
+    <Content Include="Image\SanPham\somi2B.jpg" />
+    <Content Include="Image\SanPham\somi2H.jpg" />
+    <Content Include="Image\SanPham\somi2T.jpg" />
+    <Content Include="Image\SanPham\somi3L.jpg" />
+    <Content Include="Image\SanPham\somi3T.jpg" />
+    <Content Include="Image\SanPham\sweater1.jpg" />
+    <Content Include="Image\SanPham\sweater2.jpg" />
+    <Content Include="Image\SanPham\sweater3.jpg" />
+    <Content Include="Image\SanPham\sweater4.jpg" />
+    <Content Include="Image\SanPham\sweater5.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\CateProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ColorController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLDonHangController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SizeController.cs" />
     <Compile Include="Controllers\DNController.cs" />
-    <Compile Include="Controllers\GioHangDefaultController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
@@ -242,24 +256,60 @@
     <Content Include="Views\Shared\_PartialFooter.cshtml" />
     <Content Include="Views\Shared\_PartialHeader.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Models\QuanLyTheCIU1.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>QuanLyTheCIU1.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Views\Product\ProductPatial.cshtml" />
     <Content Include="Views\Product\AllSP.cshtml" />
     <Content Include="ClassDiagram1.cd" />
     <Content Include="Views\Product\_PartialCate.cshtml" />
     <Content Include="Views\Shared\_PartialPanel.cshtml" />
     <Content Include="Views\Home\_PatialOutstanding.cshtml" />
-    <Content Include="Views\Home\_PatialNEWARRIVALS.cshtml" />
     <Content Include="Views\DN\Register.cshtml" />
-    <Content Include="Views\DN\DangNhap.cshtml" />
-    <Content Include="Views\DN\QuenMatKhau.cshtml" />
     <Content Include="Views\Home\AdminDashboard.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\SanPhamNew.cshtml" />
+    <Content Include="Views\Product\SearchSanPham.cshtml" />
+    <Content Include="Views\Product\ViewAo.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Areas\Admin\Views\CateProduct\AddCate.cshtml" />
+    <Content Include="Areas\Admin\Views\CateProduct\CateProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductPatial.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductVariantPatial.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\SuaMauSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\SuaSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ThemMauSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ThemSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\XoaMauSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\XoaSP.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AdminFunctionPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\AdminLayoutPage1.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_PartialHeader.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Models\QuanLyTheCIU1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QuanLyTheCIU1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\CateProduct\UpdateCate.cshtml" />
+    <Content Include="Areas\Admin\Views\CateProduct\DeleteCate.cshtml" />
+    <Content Include="Areas\Admin\Views\Color\ColorProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Color\AddColor.cshtml" />
+    <Content Include="Areas\Admin\Views\Color\UpdateColor.cshtml" />
+    <Content Include="Areas\Admin\Views\Color\DeleteColor.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\SizeProduct.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\AddSize.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\UpdateSize.cshtml" />
+    <Content Include="Areas\Admin\Views\Size\DeleteSize.cshtml" />
+    <Content Include="Areas\Admin\Views\QLDonHang\QLDonHang.cshtml" />
+    <Content Include="Areas\Admin\Views\QLDonHang\OrderDetails.cshtml" />
+    <None Include="Models\QuanLyTheCIU1.dbml.layout">
+      <DependentUpon>QuanLyTheCIU1.dbml</DependentUpon>
+    </None>
+    <Content Include="Views\Home\_PartialNEWARRIVALS.cshtml" />
+    <Content Include="Views\Product\getListImage.cshtml" />
+    <Content Include="Views\DN\DangNhap.cshtml" />
+    <Content Include="Views\Home\BestSeller.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -269,16 +319,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHangDefault\" />
-    <Folder Include="Views\GioHang\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Models\QuanLyTheCIU1.dbml.layout">
-      <DependentUpon>QuanLyTheCIU1.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

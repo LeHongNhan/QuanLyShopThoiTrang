@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QuanLyShopThoiTrang.Models.Product>
+
+@{
+    ViewBag.Title = "ViewAo";
+    Layout = "~/Views/Shared/_LayoutThoiTrang.cshtml";
+}
+
+
+
+<div class="table mt-3">
+    <div class="row" style="margin-left:10%;margin-right:10%">
+
+        @foreach (var item in Model)
+        {
+            <a href="~/Product/Details?maSP=@item.product_id" class="product-container text-center text-dark">
+                <div class="col-lg-3 col-md-6 col-12 link-san-pham " style="font-size:14px ; font-weight:400; width:37vmin;height:65vmin">
+                    <img style="width:35vmin;height:40vmin" st class="card-img-top " src="~/Image/SanPham/@item.ImageSP" />
+                    <div class="d-flex mt-3 ">
+                       @Html.Action("getListImage", "Product", new {id =item.product_id})
+                    </div>                  
+
+                    <div class="card-body" style="width:35vmin;height:15vmin">
+                        @if (item.product_name.Length > 30)
+                        {
+                            <p class="card-title">@item.product_name.Substring(0, 30)... </p>
+                        }
+                        else
+                        {
+                            <p class="card-title">@item.product_name </p>
+                        }
+                        <p class="card-title text-center">₫ @item.price.Value.ToString("N0")</p>
+
+                    </div>
+                    <div class="product-action">
+                        <div class="btn-product btn-cart add-to-cart-btn">
+
+                            <p class="mb-3 text-center text-uppercase font-weight-bold text-light"> <i class="fa fa-cart-shopping cart mt-3"></i> Thêm vào giỏ hàng</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+

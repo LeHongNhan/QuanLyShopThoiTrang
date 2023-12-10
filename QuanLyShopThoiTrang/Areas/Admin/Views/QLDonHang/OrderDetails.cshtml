@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QuanLyShopThoiTrang.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>OrderDetails</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Màu
+        </th>
+        <th>Kích thước</th>
+        <th>Số lượng</th>
+        <th>Thành Tiền</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductVariant.Product.product_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductVariant.Color.color_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductVariant.Size.size_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subtotal)
+        </td>
+
+    </tr>
+}
+
+</table>

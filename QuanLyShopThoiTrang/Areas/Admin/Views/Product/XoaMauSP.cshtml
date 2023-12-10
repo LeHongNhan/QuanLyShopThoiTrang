@@ -1,0 +1,65 @@
+﻿@model QuanLyShopThoiTrang.Models.ProductVariant
+
+@{
+    ViewBag.Title = "ProductVariantPartials";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+<h2>Xóa mẫu sản phẩm</h2>
+
+<h3>Bạn có chắc chắn muốn xóa mẫu này?</h3>
+<div>
+    <h4>ProductVariant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.color_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.color_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.size_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.size_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageSP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageSP)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "ProductVariantPatial")
+        </div>
+    }
+</div>

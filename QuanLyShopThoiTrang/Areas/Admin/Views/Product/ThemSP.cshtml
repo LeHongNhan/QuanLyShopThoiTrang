@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "ProductVariantPartials";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+<h2>Thêm Sản Phẩm</h2>
+
+@using (Html.BeginForm("ThemSP", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="product_name">Tên Sản Phẩm</label>
+                    <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Tên Sản Phẩm" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Title">Tiêu Đề</label>
+                    <input type="text" class="form-control" id="Title" name="Title" placeholder="Tiêu Đề" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="price">Giá</label>
+                    <input type="text" class="form-control" id="price" name="price" placeholder="Giá" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <select class="form-control" name ="category_id">
+                        <option value="">-- Chọn Loại --</option>
+                        @foreach (QuanLyShopThoiTrang.Models.Category item in ViewBag.Cate)
+                        {
+                            <option value="@item.category_id" >@item.category_name</option>
+                        }
+                    </select>
+</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ImageSP">Ảnh Sản Phẩm</label>
+                    <input type="file" class="form-control" id="ImageSP" name="file" placeholder="Ảnh Sản Phẩm" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Dateadd">Ngày Thêm</label>
+                    <input type="date" class="form-control" id="Dateadd" name="Dateadd" placeholder="Ngày Thêm" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" value="Thêm Sản Phẩm" class="btn btn-primary" />
+                    <a href="@Url.Action("ProductPatial", "Product")" class="btn btn-secondary">Hủy</a>
+                </div>
+            </div>
+        </div>
+}

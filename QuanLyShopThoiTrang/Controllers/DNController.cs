@@ -11,7 +11,7 @@ namespace QuanLyShopThoiTrang.Controllers
     {
         // GET: DN
         // GET: DN
-        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=LAPTOP-IH11UO7O;Initial Catalog=QuanLyShop;Integrated Security=True;");
+        QuanLyTheCIU1DataContext db = new QuanLyTheCIU1DataContext(@"Data Source=LAPTOP-IH11UO7O;Initial Catalog=QuanLyShop;Integrated Security=True");
         public ActionResult Index()
         {
             return View();
@@ -23,13 +23,27 @@ namespace QuanLyShopThoiTrang.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(AccountRegister ac)
+        public ActionResult Register(string Ho,string Ten,string Address,string Email,string UserName,string DienThoai,string PassWord)
         {
             if (ModelState.IsValid)
             {
-                // xử lý nếu có dữ liệu.
+                Customer cus = new Customer();
+                cus.Name = Ho + Ten;
+                cus.Email = Email;
+                cus.Address = Address;
+                cus.Phone = DienThoai;
+                db.Customers.InsertOnSubmit(cus);
+                db.SubmitChanges();
+                var cusnewID = db.Customers.OrderByDescending(s=>s.customer_id).FirstOrDefault().customer_id;
+                Account account = new Account();
+                account.customerId = cusnewID;
+                account.status = 0;
+                account.password = PassWord;
+                account.username = UserName;
+                db.Accounts.InsertOnSubmit(account);
+                db.SubmitChanges();
             }
-            return View(ac);
+            return RedirectToAction("DangNhap");
 
         }
         public ActionResult DangNhap()
@@ -43,25 +57,24 @@ namespace QuanLyShopThoiTrang.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 int count = db.Accounts.Where(ac => ac.username == acc.UserName && ac.password == acc.Password).Count();
                 if (count > 0)
                 {
+                    Session["account"] = acc;
                     var accountTK = (from e in db.Accounts
                                      where e.username == acc.UserName
                                      where e.password == acc.Password
                                      select e).FirstOrDefault();
                     if (accountTK.status == 1)
                     {
-                        return RedirectToAction("AdminDashboard", "Home"); // chuyển hướng đến trang admin
+                        return RedirectToAction("ProductPatial", "Product", new { area = "Admin"}); // chuyển hướng đến trang admin
                     }
                     else if (accountTK.status == 0)
                     {
                         return RedirectToAction("Index", "Home"); // chuyển hướng đến trang user
                     }
-                    else
-                    {
-                        // Không có cái quyền gì ở đây.
-                    }
+                    
                 }
                 else
                 {
@@ -72,22 +85,10 @@ namespace QuanLyShopThoiTrang.Controllers
 
             return View(acc);
         }
-
-
-        public ActionResult QuenMatKhau()
+       
+        public ActionResult DangXuat()
         {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult QuenMatKhau(ForgetPassWord fpw)
-        {
-            if (ModelState.IsValid)
-            {
-                // xử lý nếu có dữ liệu.
-            }
-            return View(fpw);
+            return RedirectToAction("DangNhap","DN");
         }
 
     }

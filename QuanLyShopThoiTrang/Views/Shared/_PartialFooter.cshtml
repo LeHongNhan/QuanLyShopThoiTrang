@@ -1,6 +1,9 @@
 ﻿
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNI_ZWPqvdS6r6gPVO50I4TlYkfkZdXh8&callback=initMap&v=weekly"
+        defer></script>
 <div class="table">
-    <div class="row "style="background-color:black"><br /><br /> </div>
+    <div class="row " style="background-color:black"><br /><br /> </div>
     <div class="row " style="background-color:black">
         <div class="col-lg-3 col-md-6 col-12  mt-3 text-muted">
             <h6 class="text-light">CÔNG TY TNHH THUONG MAI THE C.I.U</h6>
@@ -13,7 +16,7 @@
             <img class="mt-3" src="~/Image/Logo/BoCongThuong.jpg" style="height: 50px; width:120px" />
         </div>
         <div class="col-lg-3 col-md-6 col-12 mt-3 text-muted">
-           <h6 class="text-light"> CHI NHÁNH</h6>
+            <h6 class="text-light"> CHI NHÁNH</h6>
             32 Nguyen Gia Tri, Binh Thanh District, HCM City
             Hotline: 0901.246.912<br />
             73 Nguyen Van Bao, Go Vap District, HCM City
@@ -36,28 +39,70 @@
             Chính sách kiểm hàng<br />
         </div>
         <div class="col-lg-2 col-md-6 col-12  mt-3 text-muted">
-            <h6 class="text-light">SOCIAL MEDIA</h6>            
-            <a class="text-muted" href="#"><i class="fab fa-instagram mr-3"></i>Instagram</a><br />            
-            <a class="text-muted" href="#"><i class="fab fa-facebook mr-3"></i>FaceBook</a><br />      
-            <a class="text-muted" href="#"><i class="fab fa-tiktok mr-3"></i>TikTok</a>            
+            <h6 class="text-light">SOCIAL MEDIA</h6>
+            <a class="text-muted" href="#"><i class="fab fa-instagram mr-3"></i>Instagram</a><br />
+            <a class="text-muted" href="#"><i class="fab fa-facebook mr-3"></i>FaceBook</a><br />
+            <a class="text-muted" href="#"><i class="fab fa-tiktok mr-3"></i>TikTok</a>
         </div>
         <div class="col-lg-2 col-md-6 col-12 mt-3 text-muted" style="font-weight:bold;font-size:14px">
-           <h6 class="text-light">PHƯƠNG THỨC THANH TOÁN</h6> 
-            <div><img class="mr-1" src="~/Image/Logo/cash.png" style="height:30px;width:30px;" /><b>Thanh toán khi nhận hàng</b></div> 
+            <h6 class="text-light">PHƯƠNG THỨC THANH TOÁN</h6>
+            <div><img class="mr-1" src="~/Image/Logo/cash.png" style="height:30px;width:30px;" /><b>Thanh toán khi nhận hàng</b></div>
             <div class="mt-3"><img class="mr-1" src="~/Image/Logo/momo.png" style="height:30px;width:30px;" />Ví MoMo</div> <br />
-            <div><img class="mr-1" src="~/Image/Logo/atm.png" style="height:30px;width:30px;" /><b>Thanh toán bằng thẻ ATM </b></div> 
-            <div class="mt-3"><img class="mr-1" src="~/Image/Logo/vnpt.png" style="height:30px;width:30px;" /><b>VNPay</b></div> 
+            <div><img class="mr-1" src="~/Image/Logo/atm.png" style="height:30px;width:30px;" /><b>Thanh toán bằng thẻ ATM </b></div>
+            <div class="mt-3"><img class="mr-1" src="~/Image/Logo/vnpt.png" style="height:30px;width:30px;" /><b>VNPay</b></div>
         </div>
     </div>
     <div class="row " style="background-color:black">
         <div class="col-lg-1 col-md-6 col-12 "></div>
-        <div class="col-lg-10 col-md-12  mt-3" ><hr style="border-color: white;"></div>
+        <div class="col-lg-10 col-md-12  mt-3"><hr style="border-color: white;"></div>
     </div>
     <div class="row" style="background-color:black">
-        <div class="col-lg-4 col-md-6 col-12 "></div>
+        <div class="col-lg-4 col-md-6 col-12 ">
+            <div id="map" style="width: 90%; height: 90%;"></div>
+        </div>
+
         <div class="col-lg-6 col-md-12 text-muted">
-            <img  src="~/Image/Logo/logo.png" style="height:200px;width:350px"/><br />
+            <img src="~/Image/Logo/logo.png" style="height:200px;width:350px" /><br />
             <b>Copyright © 2019 THE C.I.U Store. All Rights Reserved.</b>
         </div>
     </div>
 </div>
+<!-- <link href="~/Asset/style/map.js" rel="stylesheet" /> -->
+<!--link vào map.js bị lỗi nên đem hết javascript xuống file script ngay bên dưới -->
+<script>
+    function initMap() {
+        const uluru = { lat: 10.77890, lng: 106.67958 };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: uluru,
+        });
+        const contentString =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h3 id="firstHeading" class="firstHeading">Shop The Ciu</h3>' +
+            '<div id="bodyContent">' +
+            "<p><b>The ciu</b>, địa chỉ: 285 hẻm 285/4 cách mạng tháng Tám" +
+            "</div>" +
+            "</div>";
+        const infowindow = new google.maps.InfoWindow({
+            content: contentString,
+            ariaLabel: "Uluru",
+        });
+        const marker = new google.maps.Marker({
+            position: uluru,
+            map,
+            title: "TheCiu",
+        });
+
+        marker.addListener("click", () => {
+            infowindow.open({
+                anchor: marker,
+                map,
+            });
+        });
+    }
+
+    window.initMap = initMap;
+
+</script>

@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "ProductVariantPartials";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayoutPage1.cshtml";
+}
+
+<h2>Thêm mẫu Sản Phẩm</h2>
+
+@using (Html.BeginForm("ThemMauSP", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="product_name">Tên Sản Phẩm</label>
+                <select class="form-control" name="product_id">
+                    <option value="">-- Chọn tên --</option>
+                    @foreach (QuanLyShopThoiTrang.Models.Product item in ViewBag.product)
+                    {
+                        <option value="@item.product_id">@item.product_name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="quantity">Số lượng</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Số lượng" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="color_id">Màu</label>
+                <select class="form-control" name="color_id">
+                    <option value="">-- Chọn màu --</option>
+                    @foreach (QuanLyShopThoiTrang.Models.Color item in ViewBag.colors)
+                    {
+                        <option value="@item.color_id">@item.color_name</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <<label for="size_id">Size</label>
+                <select class="form-control" name="size_id">
+                    <option value="">-- Chọn size --</option>
+                    @foreach (QuanLyShopThoiTrang.Models.Size item in ViewBag.sizes)
+                    {
+                        <option value="@item.size_id">@item.size_name</option>
+                    }
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ImageSP">Ảnh Sản Phẩm</label>
+                <input type="file" class="form-control" id="ImageSP" name="file" placeholder="Ảnh Sản Phẩm" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <input type="submit" value="Thêm mẫu Sản Phẩm" class="btn btn-primary" />
+                <a href="@Url.Action("ProductVariantPatial", "Product")" class="btn btn-secondary">Hủy</a>
+            </div>
+        </div>
+    </div>
+}

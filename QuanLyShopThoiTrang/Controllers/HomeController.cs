@@ -14,24 +14,15 @@ namespace QuanLyShopThoiTrang.Controllers
         {
             return View();
         }
-        public ActionResult _PatialNEWARRIVALS()
-        {         
+        public ActionResult _PartialNEWARRIVALS(int skip = 0, int take = 8)
+        {
             var latestProducts = db.Products
-                .OrderByDescending(p => p.product_id)
-                .Take(16)
-                .ToList();
+                                     .Skip(skip)
+                                     .Take(take)
+                                     .ToList();
             return View( latestProducts);
         }
-        //public ActionResult _PatialNEWARRIVALS(int skipCount = 0)
-        //{
-        //    int takeCount = 16;
-        //    var latestProducts = db.Products
-        //        .OrderByDescending(p => p.product_id)
-        //        .Skip(skipCount)
-        //        .Take(takeCount)
-        //        .ToList();
-        //    return PartialView("_PartialNEWARRIVALS", latestProducts);
-        //}
+
         public ActionResult _PatialOutstanding()
         {
             var latestProducts = db.Products.GroupBy(p => p.category_id)
@@ -48,6 +39,12 @@ namespace QuanLyShopThoiTrang.Controllers
 
         }
 
+        public ActionResult BestSeller()
+        {
+            var listBest = db.Products.Take(10).ToList();
+
+            return View(listBest);
+        }
 
     }
 }
